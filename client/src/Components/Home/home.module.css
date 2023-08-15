@@ -1,0 +1,26 @@
+.homePage {
+  text-align: center;
+  background-color: rgb(52, 217, 187);
+  /* min-height: 100vh; */
+  /* height: 90%;
+  width: 100%; */
+}
+
+.text {
+  height: 25px;
+  font-size: 18px;
+  color: #fff; /* Color del texto en blanco */
+  background-color: #4caf50; /* Color de fondo del texto */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.paggin {
+  display: flex;
+  width: 90%;
+}
+
+.currentPage {
+  color: #056b09;
+  border-color: 1px solid #fff;
+}

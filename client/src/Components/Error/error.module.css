@@ -1,0 +1,45 @@
+.errorPage {
+  text-align: center;
+  background-image: url("../Landing/3551.jpg");
+  min-height: 100vh;
+}
+
+.customText {
+  display: inline-block;
+  height: 50px;
+  font-size: 35px;
+  color: #fff; /* Color del texto en blanco */
+  background-color: #4caf50; /* Color de fondo del texto */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.customButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #4caf50;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Efectos al pasar el ratón por encima */
+.customButton:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic */
+.customButton:active {
+  background-color: #3e8e41;
+}
+
+/* Estilo para botones deshabilitados */
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

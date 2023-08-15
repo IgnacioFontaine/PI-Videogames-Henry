@@ -1,0 +1,35 @@
+/* Estilos generales de la card */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+/* Estilos de la imagen */
+.card img {
+  width: 90%;
+  margin-left: 12px;
+  border-radius: 2px;
+}
+
+/* Estilos del título */
+.card h1 {
+  font-size: 18px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Estilos del texto de géneros */
+.card h2 {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.card:hover {
+  scale: 110%;
+}

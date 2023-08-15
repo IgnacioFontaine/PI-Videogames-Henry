@@ -1,0 +1,122 @@
+.formPage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(52, 217, 187);
+  background-image: url("C:\Users\Nacho\Desktop\PI-Videogames-main\client\src\Components\Landing\3551.jpg");
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario {
+  background-color: #34ca39;
+  width: 800px;
+  height: 900px;
+  border-radius: 25px;
+  border-color: 10px solid #ffffff;
+  justify-content: space-between;
+}
+
+.elementos {
+  border-color: 5px solid #146216;
+  font-size: 20px;
+  margin: 35px;
+}
+
+.checkBox {
+  display: grid;
+  grid-template-columns: 5fr 5fr 5fr;
+  flex-direction: column;
+}
+
+.inputCheckBox {
+  background-color: aqua;
+}
+
+.importantText {
+  color: #183a10;
+  font-size: 35px;
+}
+
+.imputs {
+  background-color: aqua;
+  width: 200px;
+  height: 25px;
+  color: #133b0b;
+  border-radius: 8px;
+}
+
+.textArea {
+  background-color: aqua;
+  color: #133b0b;
+  border-radius: 8px;
+  width: 250px;
+  height: 45px;
+}
+
+.labelText {
+  color: #183a10;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.customButton {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #4caf50;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 50px;
+}
+
+/* Efectos al pasar el ratón por encima */
+.customButton:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic */
+.customButton:active {
+  background-color: #3e8e41;
+}
+
+/* Estilo para botones deshabilitados */
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.customButtonFalse {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #ff0303;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 50px;
+}
+
+.customButtonFalse:hover {
+  background-color: #d80000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic */
+.customButtonFalse:active {
+  background-color: #870000;
+}
+
+/* Estilo para botones deshabilitados */
+.custom-buttonFalse:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
