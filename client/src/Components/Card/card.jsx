@@ -7,7 +7,7 @@ const Card = ({ game }) => {
     game;
 
   return (
-    <div className={style.card}>
+    <div className={style.card} key={id}>
       <Link to={`/detail/${id}`}>
         <img src={img ? img : null} alt={name} />
         <h1>{name ? name : null}</h1>

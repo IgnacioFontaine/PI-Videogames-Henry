@@ -17,7 +17,7 @@ function App() {
 
       <Route path="/form" component={Form}></Route>
 
-      {/* <Route exact path="/*" component={Error} /> */}
+      {/* <Route path="*" component={Error}></Route> */}
     </div>
   );
 }

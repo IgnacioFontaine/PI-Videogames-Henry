@@ -2,10 +2,8 @@ import style from "./detail.module.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getVideogameByID } from "../../Redux/actions";
 
 export default function Detail() {
@@ -19,7 +17,6 @@ export default function Detail() {
   }, [dispatch, id]);
 
   const videogameById = useSelector((state) => state.detail);
-  console.log(videogameById);
 
   return (
     <div className={style.allDetail}>
@@ -36,7 +33,7 @@ export default function Detail() {
           </div>
           <div>
             <h1 className={style.detailTitle}>
-              {videogameById.name && videogameById.name}
+              🎮{videogameById.name && videogameById.name}🎮
             </h1>
             <h2 className={style.detailPlatforms}>
               ID: {videogameById.id && videogameById.id}
@@ -49,7 +46,7 @@ export default function Detail() {
             </h2>
             <h2>{videogameById.released && videogameById.released}</h2>
             <h2 className={style.detailRating}>
-              {videogameById.rating && videogameById.rating}
+              ⭐{videogameById.rating && videogameById.rating}⭐
             </h2>
             <h2 className={style.detailGenres}>
               {videogameById.genres &&

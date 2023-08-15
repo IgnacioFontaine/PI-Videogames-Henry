@@ -9,7 +9,7 @@ import {
   GET_BY_RATING,
   GET_BY_GENRE,
   SEARCH_BY_ID,
-  GET_PLATFORMS,
+  GET_ALL_PLATFORMS,
 } from "./actions";
 
 //Config initialState
@@ -116,11 +116,11 @@ const reducer = (state = initialState, action) => {
         sortVideogames: gamesFilt,
         error: err ? !state.error : state.error,
       };
-
-    case GET_PLATFORMS:
+    case GET_ALL_PLATFORMS:
+      const all_platforms = [...action.payload];
       return {
         ...state,
-        platforms: action.payload,
+        platforms: all_platforms,
       };
     default:
       return {

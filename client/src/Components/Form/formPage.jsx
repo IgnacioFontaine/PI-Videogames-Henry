@@ -1,21 +1,25 @@
 import { useDispatch } from "react-redux";
 import style from "./form.module.css";
 import React, { useEffect, useState } from "react";
-import { createVideogame, getGenres, getVideogames } from "../../Redux/actions";
+import {
+  createVideogame,
+  getGenres,
+  getAllPlatforms,
+} from "../../Redux/actions";
 import { useSelector } from "react-redux";
 
 export default function Form() {
   //Obtener géneros para mapearlo en opciones
   const dispatch = useDispatch();
-  // const allVideogames = useSelector((state) => state.sortVideogames);
+  //Plataformas
+  const allPlatforms = useSelector((state) => state.platforms);
+
   useEffect(() => {
     dispatch(getGenres());
-    // dispatch(getVideogames());
+    dispatch(getAllPlatforms());
   }, [dispatch]);
 
   const allGenres = useSelector((state) => state.genres);
-
-  //Plataformas
 
   //Estados para crear y validar formulario
   const [input, setInput] = useState({
@@ -25,7 +29,7 @@ export default function Form() {
     released: "",
     rating: "",
     genres: [],
-    platforms: "",
+    platforms: [],
   });
 
   const [error, setError] = useState({});
@@ -103,14 +107,14 @@ export default function Form() {
     event.preventDefault();
     console.log(input);
     dispatch(createVideogame(input));
-    // alert("Videojuego creado con éxito");
+    alert(`Videojuego ${input.name} creado con éxito`);
     setInput({
       name: "",
       description: "",
       released: "",
       rating: "",
       img: "",
-      platforms: "",
+      platforms: [],
       genres: [],
     });
   };
@@ -131,24 +135,27 @@ export default function Form() {
     }
   };
 
+  //Manejo handler de Plataformas:
+  const handlePlatformsChange = (event) => {
+    const platform = event.target.value;
+    if (event.target.checked) {
+      setInput((state) => ({
+        ...state,
+        platforms: [...state.platforms, platform],
+      }));
+    } else {
+      setInput((state) => ({
+        ...state,
+        platforms: state.platforms.filter((plat) => plat !== platform),
+      }));
+    }
+  };
+
   //No permite enviar un form con errores
   const handleNotSubmit = (event) => {
     event.preventDefault();
     alert("Complete the request!");
   };
-
-  //Platforms hardcodeadas
-  const allPlatforms = [
-    "PC",
-    "PlayStation 4",
-    "PlayStation 5",
-    "Xbox One",
-    "Nintento Switch",
-    "Xbox 360",
-    "Linux",
-    "macOS",
-    "PlayStation 3",
-  ];
 
   return (
     <div>
@@ -156,7 +163,7 @@ export default function Form() {
         <div className={style.formulario}>
           <div>
             <h1 className={style.importantText}>
-              Create your VideoGame
+              Create your VideoGame🎮
               <br />
             </h1>
           </div>
@@ -217,25 +224,36 @@ export default function Form() {
               <label htmlFor="platforms" className={style.labelText}>
                 Platforms:
               </label>
-              <select
-                className={style.imputs}
-                name="platforms"
-                value={input.platforms}
-                onChange={handleChange}
-              >
-                {allPlatforms.map((platform) => {
-                  return (
-                    <option key={platform} value={platform}>
-                      {platform}
-                    </option>
-                  );
-                })}
-              </select>
+              <div className={style.checkBoxPlatforms}>
+                {allPlatforms &&
+                  allPlatforms.map((platform) => {
+                    return (
+                      <div>
+                        <label
+                          className={style.inputCheckBoxPlatforms}
+                          htmlFor="platforms"
+                          name={platform.name}
+                          id={platform.name}
+                        >
+                          {platform}
+                        </label>
+                        <input
+                          value={platform}
+                          className={style.inputCheckBox}
+                          type="checkbox"
+                          name={platform.name}
+                          onChange={handlePlatformsChange}
+                        ></input>
+                      </div>
+                    );
+                  })}
+              </div>
               {error.platforms && (
                 <span className={style.labelText}>{error.platforms}</span>
               )}
             </div>
-
+          </div>
+          <div>
             {/*------------------------------Release date------------------------------*/}
             <div className={style.elementos}>
               <label htmlFor="released" className={style.labelText}>

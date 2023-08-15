@@ -22,13 +22,26 @@
 .elementos {
   border-color: 5px solid #146216;
   font-size: 20px;
-  margin: 35px;
+  margin: 25px;
 }
 
 .checkBox {
   display: grid;
   grid-template-columns: 5fr 5fr 5fr;
   flex-direction: column;
+}
+
+.checkBoxPlatforms {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr 3fr;
+  flex-direction: column;
+}
+
+.inputCheckBoxPlatforms {
+  width: 170px;
+  height: 21px;
+  color: #133b0b;
+  border-radius: 8px;
 }
 
 .inputCheckBox {

@@ -11,7 +11,7 @@ export const GET_BY_RATING = "GET_BY_RATING";
 export const GET_BY_ALP = "GET_BY_ALP";
 export const GET_BY_GENRE = "GET_BY_GENRE";
 export const SEARCH_BY_ID = "SEARCH_BY_ID";
-export const GET_PLATFORMS = "GET_PLATFORMS";
+export const GET_ALL_PLATFORMS = "GET_ALL_PLATFORMS";
 
 //Actions:
 export const getVideogames = () => async (dispatch) => {
@@ -73,6 +73,11 @@ export const getByGenre = (genre) => (dispatch) => {
   }
 };
 
-export const getPlatforms = (platforms) => (dispatch) => {
-  return dispatch({ type: GET_PLATFORMS, payload: platforms });
+export const getAllPlatforms = () => async (dispatch) => {
+  try {
+    let result = await axios.get("http://localhost:3001/platforms");
+    return dispatch({ type: GET_ALL_PLATFORMS, payload: result.data });
+  } catch (error) {
+    return dispatch({ type: ERROR, payload: error });
+  }
 };

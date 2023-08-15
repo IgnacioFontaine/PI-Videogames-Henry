@@ -5,3 +5,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+.importantText {
+  color: #183a10;
+  font-size: 50px;
+  width: 100px;
+  height: 100px;
+  text-decoration: none;
+}

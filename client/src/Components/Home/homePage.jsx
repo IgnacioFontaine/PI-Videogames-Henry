@@ -12,7 +12,6 @@ import {
   getVideogamesByRate,
   getByGenre,
   getDbGames,
-  getPlatforms,
 } from "../../Redux/actions";
 
 export default function Home() {
@@ -20,18 +19,8 @@ export default function Home() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.sortVideogames);
 
-  // const allPlatforms = allVideogames.filter((game) => game.platforms);
-  // console.log(allPlatforms);
-
-  // const filterPlatformsSet = Set(allPlatforms);
-
-  // const filterPlatforms = Array.from(filterPlatformsSet);
-
   useEffect(() => {
-    setLoaging(true);
     dispatch(getVideogames());
-    // dispatch(getPlatforms(filterPlatforms));
-    setLoaging(false);
   }, [dispatch]);
 
   //Funciones para buscar en la NavBar
@@ -48,7 +37,6 @@ export default function Home() {
   }
 
   //Paginado
-  const [loading, setLoaging] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(15);
   const indexOfLastGame = currentPage * gamesPerPage;
@@ -73,7 +61,6 @@ export default function Home() {
   };
 
   //Filtrado
-  // handleOrigin,
   const handleSort = (event) => {
     event.preventDefault();
     if (event.target.value === "") {
@@ -122,7 +109,7 @@ export default function Home() {
       </header>
       <body>
         <div>
-          <Cards videogames={currentGames} loading={loading} />
+          <Cards videogames={currentGames} />
         </div>
         <div>
           <h3 className={style.currentPage}>Current Page:{currentPage}</h3>
