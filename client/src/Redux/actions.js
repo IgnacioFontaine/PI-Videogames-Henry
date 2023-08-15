@@ -12,6 +12,7 @@ export const GET_BY_ALP = "GET_BY_ALP";
 export const GET_BY_GENRE = "GET_BY_GENRE";
 export const SEARCH_BY_ID = "SEARCH_BY_ID";
 export const GET_ALL_PLATFORMS = "GET_ALL_PLATFORMS";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
 
 //Actions:
 export const getVideogames = () => async (dispatch) => {
@@ -80,4 +81,8 @@ export const getAllPlatforms = () => async (dispatch) => {
   } catch (error) {
     return dispatch({ type: ERROR, payload: error });
   }
+};
+
+export const cleanDetail = () => (dispatch) => {
+  return dispatch({ type: CLEAN_DETAIL });
 };

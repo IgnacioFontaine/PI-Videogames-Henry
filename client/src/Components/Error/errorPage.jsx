@@ -10,7 +10,11 @@ export default function Error() {
           ¡Error 404! Page not found
           <br />
         </h1>
+
         <br />
+      </div>
+      <div>
+        <h2 className={style.h2Text}>Return to Home:</h2>
       </div>
       <div>
         <Link to="/home">

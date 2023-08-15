@@ -1,21 +1,19 @@
 import style from "./LandingPage.module.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../utils/game-control.png";
 
 export default function LandingPage() {
   return (
     <div className={style.LandingPage}>
-      <div>
-        <h1 className={style.customText}>
-          PI Videogames Proyect!
-          <br />
-        </h1>
+      <div className={style.divPapa}>
+        <img className={style.logotipo} src={image} alt="Logo" />
+        <h1>PI Videogames Proyect!</h1>
       </div>
       <div>
-        {/* <p>
-          Application that shows videogames, their detail and it is possible to
-          create your own videogame! To start press the button
-        </p> */}
+        <div className={style.text}>
+          <h2>"Unlocking Adventures Beyond Reality"</h2>
+        </div>
         <br />
         <h2 className={style.extraText}>Main Developer: Ignacio Fontaine</h2>
         <a

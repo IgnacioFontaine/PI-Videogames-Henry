@@ -10,6 +10,7 @@ import {
   GET_BY_GENRE,
   SEARCH_BY_ID,
   GET_ALL_PLATFORMS,
+  CLEAN_DETAIL,
 } from "./actions";
 
 //Config initialState
@@ -18,9 +19,9 @@ const initialState = {
   sortVideogames: [],
   detail: [],
   genres: [],
+  platforms: [],
   error: false,
   errormsg: {},
-  platforms: [],
 };
 
 //Config reducer
@@ -121,6 +122,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         platforms: all_platforms,
+      };
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
       };
     default:
       return {

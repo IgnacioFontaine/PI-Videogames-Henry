@@ -1,18 +1,23 @@
 .navbar {
-  background-color: #00bfff; /* Celeste */
+  /* background-color: #00bfff;  */
+  background-color: #4caf50;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   font-size: 20px;
+  border-radius: 15px;
 }
 
 /* Estilos para el campo de entrada */
 .searchInput {
   padding: 8px;
   border: 2px solid #008000; /* Verde */
+  color: #ffffff;
   border-radius: 5px;
   font-size: 15px;
+  background-color: #8cec9052;
+  margin-right: 0.6rem;
 }
 
 /* Estilos para el botón */
@@ -30,4 +35,12 @@
 
 .searchButton:hover {
   background-color: #006400; /* Verde más oscuro al pasar el mouse */
+}
+
+.logotipo {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: left;
+  margin-right: 0.8rem;
 }

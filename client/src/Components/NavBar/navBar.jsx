@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres } from "../../Redux/actions";
+import image from "../utils/game-control.png";
 
 const NavVar = ({
   handleChange,
@@ -22,6 +23,9 @@ const NavVar = ({
   return (
     <div>
       <form onChange={handleChange} className={style.navbar}>
+        <div>
+          <img className={style.logotipo} src={image} alt="Logo" />
+        </div>
         <input
           placeholder="Search for name..."
           type="search"

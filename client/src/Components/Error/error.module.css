@@ -15,6 +15,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.h2Text {
+  display: inline-block;
+  height: 28px;
+  font-size: 32px;
+  color: #4caf50; /* Color del texto en blanco */
+  /* background-color: #4caf50;  */
+  padding: 8px;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
 
 .customButton {
   padding: 10px 20px;

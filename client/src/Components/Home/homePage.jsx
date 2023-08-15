@@ -1,8 +1,9 @@
 import style from "./home.module.css";
-import React, { useState } from "react";
 import NavBar from "../NavBar/navBar";
 import Paginado from "../Pagin/pagin";
 import Cards from "../Cards/cards";
+import Foother from "../Foother/foother";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,6 +14,7 @@ import {
   getByGenre,
   getDbGames,
 } from "../../Redux/actions";
+import Loading from "../Loading/loading";
 
 export default function Home() {
   //Traer todos los Videojuegos al ingresar al Home
@@ -44,10 +46,11 @@ export default function Home() {
   const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
   //Cambio de página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const maxPage = Math.ceil(allVideogames.length / gamesPerPage);
 
   const handleNextPage = (event) => {
     event.preventDefault();
-    if (currentPage < indexOfLastGame) {
+    if (currentPage < maxPage) {
       setCurrentPage(currentPage + 1);
     }
     return;
@@ -109,7 +112,11 @@ export default function Home() {
       </header>
       <body>
         <div>
-          <Cards videogames={currentGames} />
+          {allVideogames.length !== 0 ? (
+            <Cards videogames={currentGames} />
+          ) : (
+            <Loading />
+          )}
         </div>
         <div>
           <h3 className={style.currentPage}>Current Page:{currentPage}</h3>
@@ -121,6 +128,7 @@ export default function Home() {
             handleNextPage={handleNextPage}
             handlePrevPage={handlePrevPage}
           />
+          <Foother />
         </div>
       </body>
     </div>

@@ -7,6 +7,7 @@ import {
   getAllPlatforms,
 } from "../../Redux/actions";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Form() {
   //Obtener géneros para mapearlo en opciones
@@ -162,10 +163,8 @@ export default function Form() {
       <form className={style.formPage} onSubmit={handleSubmit}>
         <div className={style.formulario}>
           <div>
-            <h1 className={style.importantText}>
-              Create your VideoGame🎮
-              <br />
-            </h1>
+            <h1 className={style.importantText}>Create your VideoGame🎮</h1>
+            <br />
           </div>
           <div>
             {/*------------------------------Name------------------------------*/}
@@ -333,6 +332,9 @@ export default function Form() {
                   Complete Fields❌
                 </button>
               )}
+              <Link to="/home">
+                <button className={style.customButton}>Back to Home</button>
+              </Link>
             </div>
           </div>
         </div>

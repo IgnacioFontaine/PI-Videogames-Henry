@@ -32,13 +32,38 @@ a {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.text {
+  display: inline-block;
+  color: #4caf50; /* Color del texto en blanco */
+  width: auto;
+  height: 25px;
+  font-size: 20px;
+  padding: 1px;
+  border-radius: 8px;
+}
+
+.divPapa {
+  background-color: #4caf50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.divPapa h1 {
+  margin-left: 0.5rem;
+}
+
+.divPapa img {
+  margin-right: 0.5rem;
+}
+
 .customButton {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
+  background-color: #45a049;
   color: #fff;
-  background-color: #4caf50;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -58,4 +83,11 @@ a {
 .custom-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.logotipo {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  margin: 2px;
 }
