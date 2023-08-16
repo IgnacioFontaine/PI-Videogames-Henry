@@ -12,7 +12,7 @@
 
 .formulario {
   background-color: #34ca39;
-  width: 800px;
+  width: 900px;
   height: 1000px;
   border-radius: 25px;
   border-color: 10px solid #ffffff;
@@ -39,7 +39,7 @@
 
 .inputCheckBoxPlatforms {
   width: 170px;
-  height: 21px;
+  height: 25px;
   color: #133b0b;
   border-radius: 8px;
 }
@@ -67,6 +67,7 @@
   border-radius: 8px;
   width: 250px;
   height: 45px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .labelText {
@@ -132,4 +133,11 @@
 .custom-buttonFalse:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.imagenRender {
+  height: 85px;
+  width: 85px;
+  margin-left: 1.5rem;
+  align-items: center;
 }

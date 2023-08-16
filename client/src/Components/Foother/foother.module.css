@@ -1,13 +1,13 @@
 .contenedor {
-  direction: end;
+  /* direction: end; */
   height: 70px;
   width: 100%;
-  margin-top: 2px;
   display: flex;
   text-align: center;
   justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.281);
-  /* margin-top: 5px; */
+  margin-top: auto;
+  align-self: end;
 }
 
 .elementos {

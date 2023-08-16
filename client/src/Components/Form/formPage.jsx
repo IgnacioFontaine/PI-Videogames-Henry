@@ -36,27 +36,51 @@ export default function Form() {
   const [error, setError] = useState({});
 
   function validate(input) {
+    //Validación URL:
+    const isValidUrl = (urlString) => {
+      var urlPattern = new RegExp(
+        "^(https?:\\/\\/)?" + // validate protocol
+          "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+          "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
+          "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+          "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+          "(\\#[-a-z\\d_]*)?$",
+        "i"
+      ); // validate fragment locator
+      return !!urlPattern.test(urlString);
+    };
+
+    //Validación Released:
+    function isValidDate(dateString) {
+      var regEx = /^\d{4}-\d{2}-\d{2}$/;
+      if (!dateString.match(regEx)) return false; // Invalid format
+      var d = new Date(dateString);
+      var dNum = d.getTime();
+      if (!dNum && dNum !== 0) return false; // NaN value, Invalid date
+      return d.toISOString().slice(0, 10) === dateString;
+    }
+
+    //RegEx rating
+    // const regexNumber = RegExp(/^[0-9]+$/);
+    const regexNumber = RegExp(/^[0-9]\d{0,9}(\.\d{1,3})?%?$/);
+
     let error = {};
     //Validar nombre
-    if (!input.name) {
+    if (!input.name.trim()) {
       error.name = "Name required";
     } else if (!/^[a-zA-Z0-9-() .]+$/.test(input.name)) {
       error.name =
         "Only letters, numbers, hyphens, and parentheses are accepteds";
     }
-    //Validar imagen
-    // if (
-    // new RegExp(/^(ftp|http|https)://[^ "]+$/)
-    //   input.img.length !== 0 &&
-    //   !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.image)
-    // ) {
-    //   error.img = "invalid URL";
-    // }
 
+    //Validar imagen
     if (!input.img) {
       error.img = "Image required";
+    } else if (!isValidUrl(input.img)) {
+      error.img = "Invalid URL";
     }
 
+    //Validar Descripción
     if (!input.description) {
       error.description = "Description required";
     } else if (input.description.length > 100) {
@@ -64,25 +88,33 @@ export default function Form() {
         "The description must have a maximum of 100 characters";
     }
 
+    //Validar Fecha
     if (!input.released) {
       error.released = "Release date required";
+    } else if (!isValidDate(input.released)) {
+      error.released = "The date must be YY-MM-DD";
     }
 
+    //Validar Rating
     if (!input.rating) {
       error.rating = "Rating required";
+    } else if (!regexNumber.test(input.rating)) {
+      error.rating = "Rating must be a number";
     } else if (input.rating > 5) {
       error.rating = "The rating should not be higher than 5";
     } else if (input.rating <= 0) {
       error.rating = "The rating must not be less than or equal to 0";
     }
 
-    if (!input.genres) {
-      error.genres = "Genre required";
-    }
+    //Validar Género
+    // if (input.genres.length === 0) {
+    //   error.genres = "Genre required";
+    // }
 
-    if (!input.platforms) {
-      error.platforms = "Platform required";
-    }
+    //Validar Plataformas
+    // if (input.platforms.length === 0) {
+    //   error.platforms = "Platform required";
+    // }
 
     return error;
   }
@@ -105,10 +137,10 @@ export default function Form() {
 
   //Enviar Videojuego correcto a DB:
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(input);
     dispatch(createVideogame(input));
     alert(`Videojuego ${input.name} creado con éxito`);
+    event.preventDefault();
+    console.log(input);
     setInput({
       name: "",
       description: "",
@@ -164,7 +196,6 @@ export default function Form() {
         <div className={style.formulario}>
           <div>
             <h1 className={style.importantText}>Create your VideoGame🎮</h1>
-            <br />
           </div>
           <div>
             {/*------------------------------Name------------------------------*/}
@@ -196,8 +227,14 @@ export default function Form() {
                 onChange={handleChange}
                 autoComplete="off"
               ></input>
-              {error.img && (
+              {error.img ? (
                 <span className={style.labelText}>{error.img}</span>
+              ) : (
+                <img
+                  src={input.img}
+                  className={style.imagenRender}
+                  alt="Render URL"
+                ></img>
               )}
             </div>
 
@@ -229,7 +266,6 @@ export default function Form() {
                     return (
                       <div>
                         <label
-                          className={style.inputCheckBoxPlatforms}
                           htmlFor="platforms"
                           name={platform.name}
                           id={platform.name}
